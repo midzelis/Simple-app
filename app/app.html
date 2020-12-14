@@ -1,0 +1,72 @@
+<template>
+    <div class="app slds-p-around_x-large">
+        <h1 class="slds-text-heading_large">{title}</h1>
+        <h3>
+            Write JavaScript, HTML, and CSS code, and preview the output in the interactive code
+            editor.
+        </h3>d
+
+        <!-- Using an if statement -->
+        <template if:true={showFeatures}>
+            <div class="slds-p-top_large">
+                <h2 class="slds-text-heading_medium">Features</h2>
+
+                <!-- Using a for statement -->
+                <template for:each={features} for:item="feature">
+                    <c-child label={feature.label} key={feature.label}>
+                        <!-- Specifying the 'icon' slot for c-child -->
+                        <lightning-icon
+                            icon-name={feature.icon}
+                            size="x-small"
+                            slot="icon"
+                        ></lightning-icon>
+                    </c-child>
+                </template>
+            </div>
+        </template>
+
+        <h2 class="slds-text-heading_medium slds-p-top_large">
+            Authenticated Usage Considerations
+        </h2>
+        <div>You can log in with Salesforce or GitHub. This gives you additional abilities.</div>
+        <ul class="slds-list_dotted">
+            <li>You can specify project access level: public or private.</li>
+            <li>You can see all your pojects in one place.</li>
+            <li>You can delete projects you created.</li>
+            <li>You can deploy projects to Salesforce Scratch Orgs.</li>
+            <li>You can clone, push, and pull from GitHub repositories.</li>
+        </ul>
+
+        <h2 class="slds-text-heading_medium slds-p-top_large">
+            Anonymous Usage Considerations
+        </h2>
+        <div>The following apply when you use LWC Playground without logging in:</div>
+        <ul class="slds-list_dotted">
+            <li>
+                All playgrounds created without logging in have a publicly accessible URL, and can
+                not be deleted.
+            </li>
+            <li>
+                When you save a new playground, bookmark the URL or save it elsewhere so you can
+                access it later.
+            </li>
+        </ul>
+
+        <h2 class="slds-text-heading_medium slds-p-top_large">Resources</h2>
+        <ul class="slds-list_dotted">
+            <li>
+                <a
+                    href="https://developer.salesforce.com/docs/component-library/documentation/lwc/lwc.install_playground"
+                    target="_blank"
+                >
+                    Playground in the Lightning Web Components Developer Guide
+                </a>
+            </li>
+            <li>
+                <a href="https://lwc.dev" target="_blank">
+                    LWC Website
+                </a>
+            </li>
+        </ul>
+    </div>
+</template>
